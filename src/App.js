@@ -10,7 +10,12 @@ function App() {
  */
 class App extends Component {
   render() {
-    return <h1>Hello, world!</h1>;
+    return (
+      <div>
+      <label htmlFor="bar">bar</label>
+      <input type="text" id="bar" onClick={() => {console.log("I am clicked")}} />
+      </div>
+    )
   }
 }
 export default App;
