@@ -1,13 +1,16 @@
-//import React from 'react';
-import React, { Component } from 'react';
-/*
+import React from 'react';
+//import React, { Component } from 'react';
+
 function App() {
   return (
-    <div>Hello, world</div>
-    
+    <div><Cat /><Cat /><Cat /></div>
   );
 }
- */
+const Cat = () => {
+  return <div>Meow!</div>
+}
+
+/* 
 class App extends Component {
   render() {
     return (
@@ -18,4 +21,6 @@ class App extends Component {
     )
   }
 }
+ */
+
 export default App;
