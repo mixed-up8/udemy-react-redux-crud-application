@@ -25,14 +25,16 @@ class EventsNew extends Component {
     this.props.history.push('/')
   }
   render() {
-    const { handleSubmit } = this.props
-
+    // 何にも入力されていない状態を示す属性pristine
+    // 連続押下抑止のため、押下状態を示す属性submitting(submitが押されたらtrue)
+    const { handleSubmit, pristine, submitting } = this.props
+    console.log(submitting)
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div><Field label="Title" name="title" type="text" component={this.renderField} /></div>
         <div><Field label="Body" name="body" type="text" component={this.renderField} /></div>
         <div>
-          <input type="submit" value="Submit" disabled={false} />
+          <input type="submit" value="Submit" disabled={pristine || submitting} />
           <Link to="/" >Cancel</Link>
         </div>
       </form>
