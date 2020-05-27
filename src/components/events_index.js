@@ -1,3 +1,4 @@
+// EventIndex というコンポーネントの処理　
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import _ from 'lodash'
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { readEvents } from '../actions'
 
 class EventsIndex extends Component {
+  // render直後（Did）に行いたい処理として、一覧表示処理を呼ぶ
   componentDidMount() {
     //データ取得するreadEventsを呼ぶ
     this.props.readEvents()
@@ -48,17 +50,3 @@ const mapDispatchToProps = ({　readEvents })
 
 export default connect (mapStateToProps, mapDispatchToProps)(EventsIndex)
 
-/* 
-class App extends Component {
-  render() {
-    return (
-      <div>
-      <label htmlFor="bar">bar</label>
-      <input type="text" id="bar" onClick={() => {console.log("I am clicked")}} />
-      </div>
-    )
-  }
-}
- */
-
-//export default App;
