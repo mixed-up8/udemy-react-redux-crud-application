@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
-
 
 import { getEvent, deleteEvent, putEvent } from '../actions'
 
@@ -71,12 +70,12 @@ const validate = values => {
 
 const mapStateToProps = (state, ownProps) => {
   const event = state.events[ownProps.match.params.id]
-  return { initialValue: event, event }
+  return { initialValues: event, event }
 }
 
-const mapDispatchToProps = ({ deleteEvent, getEvent, putEvent })
+const mapDispatchToProps = { deleteEvent, getEvent, putEvent }
 
-export default connect (mapStateToProps, mapDispatchToProps)(
+export default connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({ validate, form: 'eventShowForm', enableReinitialize: true })(EventsShow)
 )
 

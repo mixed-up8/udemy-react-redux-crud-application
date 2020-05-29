@@ -26,8 +26,7 @@ export const postEvent = values => async dispatch => {
 }
 
 export const putEvent = values => async dispatch => {
-  console.log(values.id)
-  const response = await axios.put(`${ROOT_URL}/events/${values.id}${QUERYSTRING}`)
+  const response = await axios.put(`${ROOT_URL}/events/${values.id}${QUERYSTRING}`, values)
   dispatch ({ type : UPDATE_EVENT, response })
 }
 
@@ -39,7 +38,7 @@ export const getEvent = id => async dispatch => {
 //deleteEventにはパラメータidが渡ってくる
 export const deleteEvent = id => async dispatch => {
     //外部APIサーバにDELETEリクエストを投げる(テンプレートリテラルを使った場合)
-    const response = await axios.delete(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
+    await axios.delete(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
     //削除されたidをdispatchでreducerに渡す
     dispatch({ type: DELETE_EVENT, id }) 
 }
